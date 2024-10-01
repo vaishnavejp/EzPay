@@ -129,7 +129,7 @@ Ezpay is a comprehensive digital payment solution that allows users to securely 
 ---
 
 ## Contributors
-- vaishnavejp3
+- vaishnavejp
 - subhashree211002
 - vanshika-37
 - YashGkwd
