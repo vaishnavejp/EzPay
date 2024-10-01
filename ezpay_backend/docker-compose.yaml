@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  oracle-db:
+    image: gvenzl/oracle-xe
+    container_name: oracle-db
+    environment:
+      - ORACLE_USER=system
+      - ORACLE_PASSWORD=vaish123
+      - ORACLE_PDB=xe
+    ports:
+      - "1521:1521"
+
+  backend-app:
+    build: .
+    container_name: backend-app
+    ports:
+      - "8090:8090"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:oracle:thin:@oracle-db:1521:xe
+      SPRING_DATASOURCE_USERNAME: system
+      SPRING_DATASOURCE_PASSWORD: vaish123
+      SPRING_JPA_HIBERNATE_DDL_AUTO: update
+
+networks:
+  backend-net:
+    driver: bridge
